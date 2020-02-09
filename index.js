@@ -3,7 +3,7 @@ const app = express();
 
 //Express route
 app.get('/', (req, res) => {
-    res.send({ hi: 'there' })
+    res.send({ day: 'Is best' })
 })
 
 
