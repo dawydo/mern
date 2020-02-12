@@ -24,7 +24,7 @@ passport.deserializeUser((id, done) => {
 passport.use(new GoogleStrategy({
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: 'https://fathomless-dawn-15949.herokuapp.com/auth/google/callback',
+        callbackURL: '/auth/google/callback',
         proxy: true
     }, 
     (accessToken, refreshToken, profile, done) => {
