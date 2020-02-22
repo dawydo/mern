@@ -27,21 +27,19 @@ passport.use(new GoogleStrategy({
         callbackURL: '/auth/google/callback',
         proxy: true
     }, 
-    (accessToken, refreshToken, profile, done) => {
+    async (accessToken, refreshToken, profile, done) => {
         //Check if user Id is already registered, that will avoid duplication
-        User.findOne({ googleId: profile.id })
-        .then((existingUser) => {
+        const existingUser = await User.findOne({ googleId: profile.id })
+
             if (existingUser) {
                 //We already have this record with this id from Google
-                done(null, existingUser);
-            } else {
+             return done(null, existingUser);
+            } 
                 //We don't have this user record. Make new record and save to DB
                 // Creates mongo instance
-                new User({ googleId: profile.id })
-                .save()
-                .then(user => done(null, user))
-            }
-        })
+            const user = await new User({ googleId: profile.id }).save()
+            done(null, user);
+            
         
     })
 );
