@@ -1,7 +1,7 @@
 //Install npm stripe - see stripe api docs for Charges
 //Install npm install --save body-parser
 const keys = require('../config/keys')
-const stripe = require('stripe')(keys.stripeSecretKey)
+const stripe = require('stripe')('sk_test_b2jfolM9twbcIyhA8pHFQ1Nr00UKknnbDW')//(keys.stripeSecretKey)
 const requireLogin = require('../middlewares/requireLogin')
  
  module.exports = app => {
