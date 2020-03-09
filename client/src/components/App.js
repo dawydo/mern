@@ -6,8 +6,8 @@ import * as actions from '../actions'
 
 import Header from './Header'
 import Landing from './Landing'
-const Dashboard = () => <h2>Dashboard</h2>
-const SurveyNew = () => <h2>SurveyNew</h2>
+import Dashboard from './Dashboard'
+import SurveyNew from './surveys/SurveyNew'
 
 
 class App extends Component {
@@ -17,25 +17,23 @@ class App extends Component {
 
     render() {
         return (
-            <div className="container">
-                <BrowserRouter>
-                    <div>
-                        {/*Show Header component on all pages*/}
-                        <Header />
+            <BrowserRouter>
+                <div>
+                    {/*Show Header component on all pages*/}
+                    <Header />
+                    <div className="container">
+                    {/*On main page show Landing component*/}
+                    <Route path="/" exact component={Landing} />
 
-                        {/*On main page show Landing component*/}
-                        <Route path="/" exact component={Landing} />
+                    {/*On surveys page show Dashboard component*/}
+                    <Route path="/surveys" exact component={Dashboard} />
 
-                        {/*On surveys page show Dashboard component*/}
-                        <Route path="/surveys" exact component={Dashboard} />
-
-                        {/*On surveys/new page show SurveyNew component*/}
-                        <Route path="/surveys/new" exact component={SurveyNew} />
-
+                    {/*On surveys/new page show SurveyNew component*/}
+                    <Route path="/surveys/new" exact component={SurveyNew} />
                     </div>
-                </BrowserRouter>
-            </div>
-        )
+                </div>
+            </BrowserRouter>
+    )
     }
 }
 

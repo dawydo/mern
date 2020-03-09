@@ -5,6 +5,7 @@ const passport = require('passport')
 const bodyParser = require('body-parser')
 const keys = require('./config/keys')
 require('./models/User')
+require('./models/Survey')
 require('./services/passport')
 
 
@@ -37,6 +38,9 @@ require('./routes/authRoutes')(app);
 
 // Get billingRouts.js export function and call with app object
 require('./routes/billingRoutes')(app);
+
+// Get surveyRoutes.js 
+require('./routes/surveyRoutes')(app);
 
 
 if  (process.env.NODE_ENV === 'production') {

@@ -30,7 +30,7 @@ class Header extends Component {
         //console.log(this.props)
         return (
             <nav>
-                <div className="nav-wrapper">
+                <div className="nav-wrapper black">
                     {/*If user loged in navigate to /surveys if logedout to Landing page*/}
                     <Link 
                         to={this.props.auth ? '/surveys' : '/'}
