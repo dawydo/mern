@@ -5,6 +5,7 @@ import { fetchSurveys } from '../../actions'
 class SurveyList extends Component {
     componentDidMount() {
         this.props.fetchSurveys();
+
     }
 
     renderSurveys() {
@@ -14,20 +15,24 @@ class SurveyList extends Component {
                     <div className="card-content">
                         <span className="card-title">{survey.title}</span>
                         <p>
-                            {survey.body}
+                            {survey.body} 
                         </p>
-                        <p className="right">
-                            Sent on: {new Date(survey.dateSent).toLocaleDateString()}
-                        </p>
+
                     </div>
                     <div className="card-action">
-                        <a>Yes: {survey.yes}</a>
-                        <a>No: {survey.no}</a>
+                        <h8 style={{color: "orange", marginRight: 15}}>Yes: {survey.yes} </h8>
+                        <h8 style={{color: "green"}}>No: {survey.no} </h8>
+
+                        <p className="sentDate right" style={{margin: "auto"}}>
+                            Sent on: {new Date(survey.dateSent).toLocaleDateString()}
+                        </p>
                     </div>
                 </div>
             )
         })
     }
+
+
 
     render() {
         return (

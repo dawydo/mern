@@ -24,7 +24,7 @@ module.exports = app => {
     })
 
     // After user click on email yes/no redirect
-    app.get('/api/surveys/:surveyId/:choice', (req, res) => {
+    app.get('/api/surveys/:surveyId/:choice', (req, res) => { 
         res.send('Thanks for voting!')
     });
 

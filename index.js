@@ -6,11 +6,19 @@ const bodyParser = require('body-parser')
 const keys = require('./config/keys')
 require('./models/User')
 require('./models/Survey')
+require('./models/Members')
 require('./services/passport')
 
 
+// Connect to Mango
+mongoose.connect(keys.mongoURI, { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: true
+ })
+.then(() => console.log('----> MangoDB Connected... <-----'))
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, })
 
 const app = express();
 
@@ -41,6 +49,10 @@ require('./routes/billingRoutes')(app);
 
 // Get surveyRoutes.js 
 require('./routes/surveyRoutes')(app);
+
+// Get membersRoutes.js 
+require('./routes/membersRoutes')(app);
+
 
 
 if  (process.env.NODE_ENV === 'production') {

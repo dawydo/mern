@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { FETCH_USER, FETCH_SURVEYS } from './types'
+import { FETCH_USER, FETCH_SURVEYS, FETCH_MEMBERS } from './types'
 
 //Fetch user from Express API (routes/authRoutes.js)
 export const fetchUser = () => async dispatch => {
@@ -29,4 +29,13 @@ export const fetchSurveys = () => async dispatch => {
 
     // Fetch Surveys user made
     dispatch({ type: FETCH_SURVEYS, payload: res.data })
+}
+
+
+
+//Fetch Members from Express API (routes/membersRoutes.js)
+export const fetchMembers = () => async dispatch => {
+    const res = await axios.get('/api/members')
+    
+        dispatch({ type:FETCH_MEMBERS, payload: res.data })
 }

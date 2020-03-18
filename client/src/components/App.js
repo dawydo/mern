@@ -8,6 +8,7 @@ import Header from './Header'
 import Landing from './Landing'
 import Dashboard from './Dashboard'
 import SurveyNew from './surveys/SurveyNew'
+import Members from './Members'
 
 
 class App extends Component {
@@ -30,6 +31,10 @@ class App extends Component {
 
                     {/*On surveys/new page show SurveyNew component*/}
                     <Route path="/surveys/new" exact component={SurveyNew} />
+
+                    {/*On surveys/new page show SurveyNew component*/}
+                    <Route path="/members" exact component={Members} />
+
                     </div>
                 </div>
             </BrowserRouter>
