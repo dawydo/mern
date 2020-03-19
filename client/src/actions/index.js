@@ -37,5 +37,5 @@ export const fetchSurveys = () => async dispatch => {
 export const fetchMembers = () => async dispatch => {
     const res = await axios.get('/api/members')
     
-        dispatch({ type:FETCH_MEMBERS, payload: res.data })
+        dispatch({ type: FETCH_MEMBERS, payload: res.data })
 }

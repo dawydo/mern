@@ -16,7 +16,7 @@ class MembersList extends Component {
                         <span className="card-title">{member.memberName}</span>
                         <p>
                             {member.memberSurname} 
-                            <div> <p>{member._id}</p> </div>
+                            <div> <p>{member._user}</p> </div>
                       
                         </p>
 
