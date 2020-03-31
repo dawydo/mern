@@ -9,16 +9,20 @@ import Landing from './Landing'
 import Dashboard from './Dashboard'
 import SurveyNew from './surveys/SurveyNew'
 import Members from './Members'
+import MemberInfo from './MemberInfo'
 
 
 class App extends Component {
     componentDidMount() {
         this.props.fetchUser();
+        this.props.fetchMemberInfo()
+       
     }
 
     render() {
         return (
             <BrowserRouter>
+               
                 <div>
                     {/*Show Header component on all pages*/}
                     <Header />
@@ -35,11 +39,15 @@ class App extends Component {
                     {/*On surveys/new page show SurveyNew component*/}
                     <Route path="/members" exact component={Members} />
 
+                    {/*On surveys/new page show SurveyNew component*/}
+                    <Route path="/members/:memberId"  component={MemberInfo} />
+
                     </div>
                 </div>
+               
             </BrowserRouter>
     )
     }
 }
-
+console.log()
 export default connect(null, actions) (App);

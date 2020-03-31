@@ -15,8 +15,9 @@ const surveySchema = new Schema({
 })
 
 //Load to MangoDB with mangoose
+//New collection survey created
 mongoose.model('surveys', surveySchema)
 
-//Use it in index.js
+//Requre it in index.js
 
 //Create route in routes/surveyRoutes.js

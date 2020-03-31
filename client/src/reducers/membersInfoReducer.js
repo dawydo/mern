@@ -1,12 +1,13 @@
-import { FETCH_SURVEYS } from '../actions/types'
+import { FETCH_MEMBER } from '../actions/types'
 
 export default function(state = [], action) {
     //console.log(action, state)
     switch  (action.type) {
-        case FETCH_SURVEYS:
+        case FETCH_MEMBER:
             return action.payload;
             default:
                 return state;
+                
     }
     
 }

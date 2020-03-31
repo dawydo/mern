@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { fetchMembers } from '../actions'
+import { Link } from 'react-router-dom'
 
 class MembersList extends Component {
     componentDidMount() {
+        
         this.props.fetchMembers();
 
     }
@@ -13,10 +15,14 @@ class MembersList extends Component {
             return (
                 <div className="card key={member._id}">
                     <div className="card-content">
-                        <span className="card-title">{member.memberName}</span>
+                        <Link to={`/members/${member._id}`}>
+                            <span className="card-title">{member.memberName}</span>
+                        </Link>
                         <p>
                             {member.memberSurname} 
-                            <div> <p>{member._user}</p> </div>
+                            
+                            <div> <p>ID: {member._id}</p> </div>
+                            <div> <p>User: {member._user}</p> </div>
                       
                         </p>
 
@@ -36,7 +42,9 @@ class MembersList extends Component {
     render() {
         return (
             <div>
+                Members.js
                 {this.renderMembers()}
+              
             </div>
         )
     }

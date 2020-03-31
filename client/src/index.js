@@ -16,6 +16,7 @@ window.axios = axios
 //add reducers as argument
 const store = createStore(reducers, {}, applyMiddleware(reduxThunk))
 
+
 //Store as a prop and child is <App/> component
 //Privider tad is React component who reads state changes
 //Provider inform all children components what new state available and

@@ -13,7 +13,7 @@ passport.serializeUser((user, done) => {
 })
 
 //Desurialize user to MangoDB
-passport.deserializeUser((id, done) => {
+passport.deserializeUser((id ,done) => {
     User.findById(id)
     .then(user => {
         done(null, user)
@@ -27,19 +27,20 @@ passport.use(new GoogleStrategy({
         callbackURL: '/auth/google/callback',
         proxy: true
     }, 
+        //profile storing google id, displayName, name, email, photo  and ather things
     async (accessToken, refreshToken, profile, done) => {
+        //console.log(profile)
         //Check if user Id is already registered, that will avoid duplication
         const existingUser = await User.findOne({ googleId: profile.id })
 
             if (existingUser) {
-                //We already have this record with this id from Google
+                //We already have this record with this id from Google 
              return done(null, existingUser);
             } 
                 //We don't have this user record. Make new record and save to DB
                 // Creates mongo instance
             const user = await new User({ googleId: profile.id }).save()
             done(null, user);
-            
-        
+           
     })
 );
